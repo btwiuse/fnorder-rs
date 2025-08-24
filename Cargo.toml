@@ -1,6 +1,6 @@
 [package]
 name = "fnorder"
-version = "1.0.0"
+version = "1.1.0"
 authors = ["Patrick Burroughs (Celti) <celti@celti.name>"]
 
 description = "Totally non-randomly generated messages from the Illuminati."
@@ -10,5 +10,7 @@ readme = "README.md"
 homepage = "http://www.sjgames.com/misc/fnord.html"
 repository = "https://github.com/Celti/fnorder-rs"
 
+edition = "2024"
+
 [dependencies]
-rand = "0.3"
+rand = "0.9"
