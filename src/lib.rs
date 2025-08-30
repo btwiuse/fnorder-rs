@@ -10,6 +10,7 @@ pub fn fnorder() -> String {
     let mut msg = String::new();
 
     match rng.random_range(0..14) {
+        // "The [$adjective] $noun [in $place] is $adjective"
         0 => {
             msg.push_str("The ");
             if rng.random_bool(0.5) {
@@ -24,6 +25,7 @@ pub fn fnorder() -> String {
             msg.push_str(" is ");
             msg.push_str(adjective());
         }
+        // "$name $action the $adjective $noun and the $adjective $noun"
         1 => {
             msg.push_str(name());
             msg.push(' ');
@@ -37,6 +39,7 @@ pub fn fnorder() -> String {
             msg.push(' ');
             msg.push_str(noun());
         }
+        // "The $noun from $place will go to $place"
         2 => {
             msg.push_str("The ");
             msg.push_str(noun());
@@ -45,6 +48,7 @@ pub fn fnorder() -> String {
             msg.push_str(" will go to ");
             msg.push_str(place());
         }
+        // "$name must take the $adjective $noun from $place"
         3 => {
             msg.push_str(name());
             msg.push_str(" must take the ");
@@ -54,6 +58,7 @@ pub fn fnorder() -> String {
             msg.push_str(" from ");
             msg.push_str(place());
         }
+        // "$place is $adjective and the $noun is $adjective"
         4 => {
             msg.push_str(place());
             msg.push_str(" is ");
@@ -63,6 +68,7 @@ pub fn fnorder() -> String {
             msg.push_str(" is ");
             msg.push_str(adjective());
         }
+        // "$name $preposition $place for the $adjective $noun"
         5 => {
             msg.push_str(name());
             msg.push(' ');
@@ -74,6 +80,7 @@ pub fn fnorder() -> String {
             msg.push(' ');
             msg.push_str(noun());
         }
+        // "The [$adjective] $noun $action the $adjective $noun [in $place]"
         6 => {
             msg.push_str("The ");
             if rng.random() {
@@ -92,6 +99,7 @@ pub fn fnorder() -> String {
                 msg.push_str(place());
             }
         }
+        // "$name $preposition $place and $action the $noun"
         7 => {
             msg.push_str(name());
             msg.push(' ');
@@ -103,6 +111,7 @@ pub fn fnorder() -> String {
             msg.push_str(" the ");
             msg.push_str(noun());
         }
+        // "$name takes $pronoun [$adjective] $noun and $preposition $place"
         8 => {
             msg.push_str(name());
             msg.push_str(" takes ");
@@ -118,6 +127,7 @@ pub fn fnorder() -> String {
             msg.push(' ');
             msg.push_str(place());
         }
+        // "$name $action the [$adjective] $noun"
         9 => {
             msg.push_str(name());
             msg.push(' ');
@@ -129,6 +139,7 @@ pub fn fnorder() -> String {
             }
             msg.push_str(noun());
         }
+        // "$name $action $name and $pronoun [$adjective] $noun"
         10 => {
             msg.push_str(name());
             msg.push(' ');
@@ -144,6 +155,7 @@ pub fn fnorder() -> String {
             }
             msg.push_str(noun());
         }
+        // "$name is the [$adjective] $noun: $name $preposition $place"
         11 => {
             msg.push_str(name());
             msg.push_str(" is the ");
@@ -159,6 +171,7 @@ pub fn fnorder() -> String {
             msg.push(' ');
             msg.push_str(place());
         }
+        // "You must meet $name at $place and get the [$adjective] $noun"
         12 => {
             msg.push_str("You must meet ");
             msg.push_str(name());
@@ -171,6 +184,7 @@ pub fn fnorder() -> String {
             }
             msg.push_str(noun());
         }
+        // "A $noun from $place $action the [$adjective] [$adjective] $noun"
         13 => {
             msg.push_str("A ");
             msg.push_str(noun());
