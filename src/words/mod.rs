@@ -1,3 +1,8 @@
+//! Word lists for generating fantasy orders and quests.
+//!
+//! This module contains various categories of words used in the sentence generation:
+//! actions, adjectives, names, nouns, places, prepositions, and pronouns.
+
 pub mod actions;
 pub mod adjectives;
 pub mod intros;

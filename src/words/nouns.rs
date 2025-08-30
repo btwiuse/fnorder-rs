@@ -1,3 +1,11 @@
+//! Array of nouns representing objects, creatures, and concepts.
+
+/// Contains 192 nouns that can be used as subjects or objects in
+/// generated fantasy orders, including weapons, magical items, creatures, and abstract concepts.
+///
+/// # Examples
+///
+/// Some nouns include: "sword", "dragon", "treasure", "amulet"
 pub const NOUNS: [&str; 192] = [
     "911 file",
     "(censored)",

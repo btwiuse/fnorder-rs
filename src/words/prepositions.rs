@@ -1,3 +1,11 @@
+//! Array of prepositions and prepositional phrases for spatial and temporal relationships.
+
+/// Contains 102 prepositions and prepositional phrases that establish relationships
+/// between characters, objects, and places in generated fantasy orders.
+///
+/// # Examples
+///
+/// Some prepositions include: "goes to", "flees from", "takes refuge in"
 pub const PREPOSITIONS: [&str; 102] = [
     "assumes responsibility for",
     "avoids servants of",

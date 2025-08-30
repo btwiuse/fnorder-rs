@@ -1,3 +1,11 @@
+//! Array of action verbs for fantasy scenarios.
+
+/// Contains 76 action verbs that can be used to describe what characters
+/// do to objects, other characters, or places in generated fantasy orders.
+///
+/// # Examples
+///
+/// Some actions include: "destroys", "commands", "infiltrates", "transforms"
 pub const ACTIONS: [&str; 76] = [
     "amuses",
     "avoids",

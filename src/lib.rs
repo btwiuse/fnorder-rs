@@ -1,3 +1,8 @@
+//! A Rust port of the classic Perl fantasy order generator.
+//!
+//! This crate generates random fantasy-style orders and quests using
+//! various sentence patterns and word lists.
+
 use rand::Rng;
 
 pub mod utils;
@@ -5,6 +10,22 @@ pub mod words;
 
 use utils::{action, adjective, name, noun, place, preposition, pronoun, ucfirst};
 
+/// Generates a random fantasy order string.
+///
+/// This function creates pseudo-random fantasy quest orders by selecting
+/// from 14 different sentence patterns and filling them with random words
+/// from various categories (names, places, actions, adjectives, etc.).
+///
+/// # Examples
+///
+/// ```
+/// let order = fnorder::fnorder();
+/// println!("{}", order); // "The ancient sword in the dungeon is cursed."
+/// ```
+///
+/// # Returns
+///
+/// A capitalized sentence ending with a period, representing a fantasy order or quest.
 pub fn fnorder() -> String {
     let mut rng = rand::rng();
     let mut msg = String::new();

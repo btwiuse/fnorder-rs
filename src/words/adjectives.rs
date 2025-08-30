@@ -1,3 +1,11 @@
+//! Array of descriptive adjectives for fantasy elements.
+
+/// Contains 168 adjectives that can be used to describe characters, objects,
+/// places, and situations in generated fantasy orders.
+///
+/// # Examples
+///
+/// Some adjectives include: "ancient", "mystical", "cursed", "legendary"
 pub const ADJECTIVES: [&str; 168] = [
     "23rd",
     "acceptable",
