@@ -12,5 +12,9 @@ repository = "https://github.com/Celti/fnorder-rs"
 
 edition = "2024"
 
+[[bin]]
+name = "fnorder"
+path = "src/bin/fnorder.rs"
+
 [dependencies]
 rand = "0.9"
