@@ -79,7 +79,7 @@ pub fn ucfirst(s: &str) -> String {
 /// println!("The hero {} the dragon", verb);
 /// ```
 pub fn action() -> &'static str {
-    rng().choose(&ACTIONS).unwrap()
+    rng().choose(ACTIONS).unwrap()
 }
 
 /// Returns a random adjective from the adjectives word list.
@@ -93,7 +93,7 @@ pub fn action() -> &'static str {
 /// println!("The {} sword gleams", adj);
 /// ```
 pub fn adjective() -> &'static str {
-    rng().choose(&ADJECTIVES).unwrap()
+    rng().choose(ADJECTIVES).unwrap()
 }
 
 /// Returns a random introduction phrase from the intros word list.
@@ -108,7 +108,7 @@ pub fn adjective() -> &'static str {
 /// ```
 #[allow(dead_code)]
 pub fn intro() -> &'static str {
-    rng().choose(&INTROS).unwrap()
+    rng().choose(INTROS).unwrap()
 }
 
 /// Returns a random name from the names word list.
@@ -122,7 +122,7 @@ pub fn intro() -> &'static str {
 /// println!("{} draws their weapon", character);
 /// ```
 pub fn name() -> &'static str {
-    rng().choose(&NAMES).unwrap()
+    rng().choose(NAMES).unwrap()
 }
 
 /// Returns a random noun from the nouns word list.
@@ -136,7 +136,7 @@ pub fn name() -> &'static str {
 /// println!("The ancient {} holds power", object);
 /// ```
 pub fn noun() -> &'static str {
-    rng().choose(&NOUNS).unwrap()
+    rng().choose(NOUNS).unwrap()
 }
 
 /// Returns a random place name from the places word list.
@@ -150,7 +150,7 @@ pub fn noun() -> &'static str {
 /// println!("Journey to {}", location);
 /// ```
 pub fn place() -> &'static str {
-    rng().choose(&PLACES).unwrap()
+    rng().choose(PLACES).unwrap()
 }
 
 /// Returns a random preposition from the prepositions word list.
@@ -164,7 +164,7 @@ pub fn place() -> &'static str {
 /// println!("Look {} the bridge", prep);
 /// ```
 pub fn preposition() -> &'static str {
-    rng().choose(&PREPOSITIONS).unwrap()
+    rng().choose(PREPOSITIONS).unwrap()
 }
 
 /// Returns a random pronoun from the pronouns word list.
@@ -178,5 +178,5 @@ pub fn preposition() -> &'static str {
 /// println!("Take {} with you", pro);
 /// ```
 pub fn pronoun() -> &'static str {
-    rng().choose(&PRONOUNS).unwrap()
+    rng().choose(PRONOUNS).unwrap()
 }

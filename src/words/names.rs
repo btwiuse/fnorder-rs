@@ -1,12 +1,12 @@
 //! Array of character names and entities for fantasy scenarios.
 
-/// Contains 148 names including characters, titles, and descriptive entities
+/// Contains names including characters, titles, and descriptive entities
 /// that can appear as subjects or objects in generated fantasy orders.
 ///
 /// # Examples
 ///
 /// Some names include: "Gandalf", "the Dark Lord", "a mysterious stranger"
-pub const NAMES: [&str; 148] = [
+pub const NAMES: &[&str] = &[
     "007",
     "a dead relative",
     "a long-lost uncle",

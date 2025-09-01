@@ -1,12 +1,12 @@
 //! Array of introduction phrases and story starters.
 
-/// Contains 34 introduction phrases that can begin fantasy orders,
+/// Contains introduction phrases that can begin fantasy orders,
 /// ranging from urgent warnings to casual observations.
 ///
 /// # Examples
 ///
 /// Some intros include: "Urgent!", "It appears that", "Our reporters claim that"
-pub const INTROS: [&str; 34] = [
+pub const INTROS: &[&str] = &[
     "4 out of 5 dentists recommend that",
     "Abort immediately unless",
     "Abort previous sequence.",

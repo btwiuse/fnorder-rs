@@ -1,12 +1,12 @@
 //! Array of location names and geographical features.
 
-/// Contains 94 place names including fantasy locations, real places,
+/// Contains place names including fantasy locations, real places,
 /// and fictional settings that can serve as destinations or origins in generated orders.
 ///
 /// # Examples
 ///
 /// Some places include: "the dungeon", "Mordor", "the ancient castle"
-pub const PLACES: [&str; 94] = [
+pub const PLACES: &[&str] = &[
     "(not available at your clearance)",
     "Afghanistan",
     "Alpha Centauri",
