@@ -1,5 +1,5 @@
 [package]
-name = "fnorder"
+name = "fnorder-rs"
 version = "1.1.0"
 authors = ["Patrick Burroughs (Celti) <celti@celti.name>"]
 
@@ -8,9 +8,13 @@ license = "MIT"
 readme = "README.md"
 
 homepage = "http://www.sjgames.com/misc/fnord.html"
-repository = "https://github.com/Celti/fnorder-rs"
+repository = "https://github.com/btwiuse/fnorder-rs"
 
 edition = "2024"
+
+[lib]
+name = "fnorder"
+path = "src/lib.rs"
 
 [[bin]]
 name = "fnorder"
