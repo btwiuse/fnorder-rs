@@ -6,8 +6,7 @@
 pub mod utils;
 pub mod words;
 
-use utils::{Random, rng};
-use utils::{action, adjective, name, noun, place, preposition, pronoun, ucfirst};
+use utils::{Random, rng, ucfirst};
 
 /// Generates a random fantasy order string.
 ///
@@ -34,194 +33,194 @@ pub fn fnorder() -> String {
         0 => {
             msg.push_str("The ");
             if rng.random_bool(0.5) {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             if rng.random_bool(0.2) {
                 msg.push_str(" in ");
-                msg.push_str(place());
+                msg.push_str(rng.place());
             }
             msg.push_str(" is ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
         }
         // "$name $action the $adjective $noun and the $adjective $noun"
         1 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push(' ');
-            msg.push_str(action());
+            msg.push_str(rng.action());
             msg.push_str(" the ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
             msg.push(' ');
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(" and the ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
             msg.push(' ');
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         // "The $noun from $place will go to $place"
         2 => {
             msg.push_str("The ");
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(" from ");
-            msg.push_str(place());
+            msg.push_str(rng.place());
             msg.push_str(" will go to ");
-            msg.push_str(place());
+            msg.push_str(rng.place());
         }
         // "$name must take the $adjective $noun from $place"
         3 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push_str(" must take the ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
             msg.push(' ');
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(" from ");
-            msg.push_str(place());
+            msg.push_str(rng.place());
         }
         // "$place is $adjective and the $noun is $adjective"
         4 => {
-            msg.push_str(place());
+            msg.push_str(rng.place());
             msg.push_str(" is ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
             msg.push_str(" and the ");
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(" is ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
         }
         // "$name $preposition $place for the $adjective $noun"
         5 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push(' ');
-            msg.push_str(preposition());
+            msg.push_str(rng.preposition());
             msg.push(' ');
-            msg.push_str(place());
+            msg.push_str(rng.place());
             msg.push_str(" for the ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
             msg.push(' ');
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         // "The [$adjective] $noun $action the $adjective $noun [in $place]"
         6 => {
             msg.push_str("The ");
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push(' ');
-            msg.push_str(action());
+            msg.push_str(rng.action());
             msg.push_str(" the ");
-            msg.push_str(adjective());
+            msg.push_str(rng.adjective());
             msg.push(' ');
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             if rng.random_bool(0.2) {
                 msg.push_str(" in ");
-                msg.push_str(place());
+                msg.push_str(rng.place());
             }
         }
         // "$name $preposition $place and $action the $noun"
         7 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push(' ');
-            msg.push_str(preposition());
+            msg.push_str(rng.preposition());
             msg.push(' ');
-            msg.push_str(place());
+            msg.push_str(rng.place());
             msg.push_str(" and ");
-            msg.push_str(action());
+            msg.push_str(rng.action());
             msg.push_str(" the ");
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         // "$name takes $pronoun [$adjective] $noun and $preposition $place"
         8 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push_str(" takes ");
-            msg.push_str(pronoun());
+            msg.push_str(rng.pronoun());
             msg.push(' ');
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(" and ");
-            msg.push_str(preposition());
+            msg.push_str(rng.preposition());
             msg.push(' ');
-            msg.push_str(place());
+            msg.push_str(rng.place());
         }
         // "$name $action the [$adjective] $noun"
         9 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push(' ');
-            msg.push_str(action());
+            msg.push_str(rng.action());
             msg.push_str(" the ");
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         // "$name $action $name and $pronoun [$adjective] $noun"
         10 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push(' ');
-            msg.push_str(action());
+            msg.push_str(rng.action());
             msg.push(' ');
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push_str(" and ");
-            msg.push_str(pronoun());
+            msg.push_str(rng.pronoun());
             msg.push(' ');
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         // "$name is the [$adjective] $noun: $name $preposition $place"
         11 => {
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push_str(" is the ");
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(": ");
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push(' ');
-            msg.push_str(preposition());
+            msg.push_str(rng.preposition());
             msg.push(' ');
-            msg.push_str(place());
+            msg.push_str(rng.place());
         }
         // "You must meet $name at $place and get the [$adjective] $noun"
         12 => {
             msg.push_str("You must meet ");
-            msg.push_str(name());
+            msg.push_str(rng.name());
             msg.push_str(" at ");
-            msg.push_str(place());
+            msg.push_str(rng.place());
             msg.push_str(" and get the ");
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         // "A $noun from $place $action the [$adjective] [$adjective] $noun"
         13 => {
             msg.push_str("A ");
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
             msg.push_str(" from ");
-            msg.push_str(place());
+            msg.push_str(rng.place());
             msg.push(' ');
-            msg.push_str(action());
+            msg.push_str(rng.action());
             msg.push_str(" the ");
             if rng.random() {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
             if rng.random_bool(0.2) {
-                msg.push_str(adjective());
+                msg.push_str(rng.adjective());
                 msg.push(' ');
             }
-            msg.push_str(noun());
+            msg.push_str(rng.noun());
         }
         _ => unreachable!(),
     }

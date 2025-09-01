@@ -17,6 +17,46 @@ pub trait Random {
 
     /// Returns a random element from a slice, or None if the slice is empty
     fn choose<'a, T>(&mut self, slice: &'a [T]) -> Option<&'a T>;
+
+    /// Returns a random action verb
+    fn action(&mut self) -> &'static str {
+        self.choose(ACTIONS).unwrap()
+    }
+
+    /// Returns a random adjective
+    fn adjective(&mut self) -> &'static str {
+        self.choose(ADJECTIVES).unwrap()
+    }
+
+    /// Returns a random introduction phrase
+    fn intro(&mut self) -> &'static str {
+        self.choose(INTROS).unwrap()
+    }
+
+    /// Returns a random name
+    fn name(&mut self) -> &'static str {
+        self.choose(NAMES).unwrap()
+    }
+
+    /// Returns a random noun
+    fn noun(&mut self) -> &'static str {
+        self.choose(NOUNS).unwrap()
+    }
+
+    /// Returns a random place name
+    fn place(&mut self) -> &'static str {
+        self.choose(PLACES).unwrap()
+    }
+
+    /// Returns a random preposition
+    fn preposition(&mut self) -> &'static str {
+        self.choose(PREPOSITIONS).unwrap()
+    }
+
+    /// Returns a random pronoun
+    fn pronoun(&mut self) -> &'static str {
+        self.choose(PRONOUNS).unwrap()
+    }
 }
 
 /// Implementation of Random trait for rand::rng()
@@ -66,117 +106,4 @@ pub fn ucfirst(s: &str) -> String {
         None => String::new(),
         Some(f) => f.to_uppercase().chain(c).collect(),
     }
-}
-
-/// Returns a random action verb from the actions word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::action;
-///
-/// let verb = action();
-/// println!("The hero {} the dragon", verb);
-/// ```
-pub fn action() -> &'static str {
-    rng().choose(ACTIONS).unwrap()
-}
-
-/// Returns a random adjective from the adjectives word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::adjective;
-///
-/// let adj = adjective();
-/// println!("The {} sword gleams", adj);
-/// ```
-pub fn adjective() -> &'static str {
-    rng().choose(ADJECTIVES).unwrap()
-}
-
-/// Returns a random introduction phrase from the intros word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::intro;
-///
-/// let opening = intro();
-/// println!("{} begins the tale", opening);
-/// ```
-#[allow(dead_code)]
-pub fn intro() -> &'static str {
-    rng().choose(INTROS).unwrap()
-}
-
-/// Returns a random name from the names word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::name;
-///
-/// let character = name();
-/// println!("{} draws their weapon", character);
-/// ```
-pub fn name() -> &'static str {
-    rng().choose(NAMES).unwrap()
-}
-
-/// Returns a random noun from the nouns word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::noun;
-///
-/// let object = noun();
-/// println!("The ancient {} holds power", object);
-/// ```
-pub fn noun() -> &'static str {
-    rng().choose(NOUNS).unwrap()
-}
-
-/// Returns a random place name from the places word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::place;
-///
-/// let location = place();
-/// println!("Journey to {}", location);
-/// ```
-pub fn place() -> &'static str {
-    rng().choose(PLACES).unwrap()
-}
-
-/// Returns a random preposition from the prepositions word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::preposition;
-///
-/// let prep = preposition();
-/// println!("Look {} the bridge", prep);
-/// ```
-pub fn preposition() -> &'static str {
-    rng().choose(PREPOSITIONS).unwrap()
-}
-
-/// Returns a random pronoun from the pronouns word list.
-///
-/// # Examples
-///
-/// ```
-/// use fnorder::utils::pronoun;
-///
-/// let pro = pronoun();
-/// println!("Take {} with you", pro);
-/// ```
-pub fn pronoun() -> &'static str {
-    rng().choose(PRONOUNS).unwrap()
 }
