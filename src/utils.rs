@@ -1,8 +1,44 @@
 //! Utility functions for string manipulation and random word selection.
 
-use rand::seq::IndexedRandom;
-
 use crate::words::{ACTIONS, ADJECTIVES, INTROS, NAMES, NOUNS, PLACES, PREPOSITIONS, PRONOUNS};
+
+/// A trait abstraction for random number generation to allow swapping implementations.
+pub trait Random {
+    /// Returns a random boolean with the given probability (0.0 to 1.0)
+    fn random_bool(&mut self, probability: f64) -> bool;
+
+    /// Returns a random value in the given range (inclusive start, exclusive end)
+    fn random_range(&mut self, range: std::ops::Range<usize>) -> usize;
+
+    /// Returns a random boolean (equivalent to random_bool(0.5))
+    fn random(&mut self) -> bool {
+        self.random_bool(0.5)
+    }
+
+    /// Returns a random element from a slice, or None if the slice is empty
+    fn choose<'a, T>(&mut self, slice: &'a [T]) -> Option<&'a T>;
+}
+
+/// Implementation of Random trait for rand::rng()
+impl Random for rand::rngs::ThreadRng {
+    fn random_bool(&mut self, probability: f64) -> bool {
+        rand::Rng::random_bool(self, probability)
+    }
+
+    fn random_range(&mut self, range: std::ops::Range<usize>) -> usize {
+        rand::Rng::random_range(self, range)
+    }
+
+    fn choose<'a, T>(&mut self, slice: &'a [T]) -> Option<&'a T> {
+        use rand::seq::IndexedRandom;
+        slice.choose(self)
+    }
+}
+
+/// Creates a new thread-local random number generator
+pub fn rng() -> impl Random {
+    rand::rng()
+}
 
 /// Capitalizes the first character of a string.
 ///
@@ -43,7 +79,7 @@ pub fn ucfirst(s: &str) -> String {
 /// println!("The hero {} the dragon", verb);
 /// ```
 pub fn action() -> &'static str {
-    ACTIONS.choose(&mut rand::rng()).unwrap()
+    rng().choose(&ACTIONS).unwrap()
 }
 
 /// Returns a random adjective from the adjectives word list.
@@ -57,7 +93,7 @@ pub fn action() -> &'static str {
 /// println!("The {} sword gleams", adj);
 /// ```
 pub fn adjective() -> &'static str {
-    ADJECTIVES.choose(&mut rand::rng()).unwrap()
+    rng().choose(&ADJECTIVES).unwrap()
 }
 
 /// Returns a random introduction phrase from the intros word list.
@@ -72,7 +108,7 @@ pub fn adjective() -> &'static str {
 /// ```
 #[allow(dead_code)]
 pub fn intro() -> &'static str {
-    INTROS.choose(&mut rand::rng()).unwrap()
+    rng().choose(&INTROS).unwrap()
 }
 
 /// Returns a random name from the names word list.
@@ -86,7 +122,7 @@ pub fn intro() -> &'static str {
 /// println!("{} draws their weapon", character);
 /// ```
 pub fn name() -> &'static str {
-    NAMES.choose(&mut rand::rng()).unwrap()
+    rng().choose(&NAMES).unwrap()
 }
 
 /// Returns a random noun from the nouns word list.
@@ -100,7 +136,7 @@ pub fn name() -> &'static str {
 /// println!("The ancient {} holds power", object);
 /// ```
 pub fn noun() -> &'static str {
-    NOUNS.choose(&mut rand::rng()).unwrap()
+    rng().choose(&NOUNS).unwrap()
 }
 
 /// Returns a random place name from the places word list.
@@ -114,7 +150,7 @@ pub fn noun() -> &'static str {
 /// println!("Journey to {}", location);
 /// ```
 pub fn place() -> &'static str {
-    PLACES.choose(&mut rand::rng()).unwrap()
+    rng().choose(&PLACES).unwrap()
 }
 
 /// Returns a random preposition from the prepositions word list.
@@ -128,7 +164,7 @@ pub fn place() -> &'static str {
 /// println!("Look {} the bridge", prep);
 /// ```
 pub fn preposition() -> &'static str {
-    PREPOSITIONS.choose(&mut rand::rng()).unwrap()
+    rng().choose(&PREPOSITIONS).unwrap()
 }
 
 /// Returns a random pronoun from the pronouns word list.
@@ -142,5 +178,5 @@ pub fn preposition() -> &'static str {
 /// println!("Take {} with you", pro);
 /// ```
 pub fn pronoun() -> &'static str {
-    PRONOUNS.choose(&mut rand::rng()).unwrap()
+    rng().choose(&PRONOUNS).unwrap()
 }

@@ -3,11 +3,10 @@
 //! This crate generates random fantasy-style orders and quests using
 //! various sentence patterns and word lists.
 
-use rand::Rng;
-
 pub mod utils;
 pub mod words;
 
+use utils::{Random, rng};
 use utils::{action, adjective, name, noun, place, preposition, pronoun, ucfirst};
 
 /// Generates a random fantasy order string.
@@ -27,7 +26,7 @@ use utils::{action, adjective, name, noun, place, preposition, pronoun, ucfirst}
 ///
 /// A capitalized sentence ending with a period, representing a fantasy order or quest.
 pub fn fnorder() -> String {
-    let mut rng = rand::rng();
+    let mut rng = rng();
     let mut msg = String::new();
 
     match rng.random_range(0..14) {
